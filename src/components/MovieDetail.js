@@ -15,8 +15,22 @@ function MovieDetail() {
       alert("You need to be logged in to add favorites.");
       return;
     }
-
+    
     try {
+      let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+      if (!favorites.includes(id)) {
+        favorites.push(id);
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+        alert("Added to favorites");
+      } else {
+        alert("Already in favorites");
+      }
+    } catch (error) {
+      console.error("Error adding to favorites:", error);
+      alert("Failed to add to favorites.");
+    }
+
+    /*try {
       const response = await axios.post(
         "http://localhost:3001/api/addFavorite",
         {
@@ -31,7 +45,7 @@ function MovieDetail() {
         error.response ? error.response.data : error.message
       );
       alert("Failed to add to favorites.");
-    }
+    }*/
   };
 
   useEffect(() => {

@@ -52,11 +52,6 @@ const Register = () => {
         alert("Registration failed. Please try again.");
       });
   };
-
-  useEffect(() => {
-    localStorage.removeItem("jwtToken");
-  }, []);
-
   return (
     <div className="flex h-[91vh] bg-white dark:bg-gray-900">
       <div className="flex-1 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
