@@ -28,10 +28,12 @@ const Login = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:3001/api/login", formData)
+      .post("https://movieden.onrender.com/api/login", formData)
       .then((response) => {
         const token = response.data.token;
+        const userid = response.data.userId;
         localStorage.setItem("jwtToken", token);
+        localStorage.setItem("UserID", userid);
         setUser(formData.username);
         navigate("/");
       })
@@ -47,10 +49,6 @@ const Login = () => {
         navigate("/login");
       });
   };
-
-  useEffect(() => {
-    localStorage.removeItem("jwtToken");
-  }, []);
 
   return (
     <div className="flex h-[91vh] bg-white dark:bg-gray-900">

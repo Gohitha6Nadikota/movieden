@@ -36,7 +36,7 @@ const Register = () => {
     }
 
     axios
-      .post("http://localhost:3001/api/register", formData)
+      .post("https://movieden.onrender.com/api/register", formData)
       .then((response) => {
         alert("Registration successful!");
         navigate("/login");
