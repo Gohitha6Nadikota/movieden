@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const MovieCard = ({ data }) => {
   const [movieurl, setUrl] = useState("");
+  const navigate=useNavigate();
   const fetchImage = async () => {
     const url = `https://moviesminidatabase.p.rapidapi.com/movie/id/${data.imdb_id}/`;
     const options = {
@@ -20,13 +21,15 @@ const MovieCard = ({ data }) => {
       console.error(error);
     }
   };
-
+   const handleCardClick = () => {
+     navigate(`/movie/${data.imdb_id}`); 
+   };
   useEffect(() => {
-    fetchImage();
-  }, []);
+    //fetchImage();
+  }, [data.imdb_id]);
 
   return (
-    <div className="w-[200px] h-[290px] m-2 border-2 border-darkLBg dark:border-darkDBg bg-lightLBg dark:bg-darkDBg dark:text-darkText text-lightText">
+    <div onClick={handleCardClick} className="w-[200px] h-[290px] m-2 border-2 border-darkLBg dark:border-darkDBg bg-lightLBg dark:bg-darkDBg dark:text-darkText text-lightText">
       <img
         src="https://m.media-amazon.com/images/M/MV5BMTc0Njc1MTU5Nl5BMl5BanBnXkFtZTcwMjA4NDE2MQ@@._V1_.jpg"
         alt={data.title}

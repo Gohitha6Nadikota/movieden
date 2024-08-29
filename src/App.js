@@ -13,6 +13,8 @@ import Register from "./components/Register";
 import FavoritesPage from "./components/FavoritesPage";
 import axios from "axios";
 import MovieCard from "./components/MovieCard";
+import { topMovies } from "./data";
+import PopularCard from "./components/PopularCard";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -138,7 +140,7 @@ function App() {
   };
   const handleFirstSearch=async ()=>{
     const url =
-      "https://moviesminidatabase.p.rapidapi.com/movie/order/upcoming/";
+      "https://moviesminidatabase.p.rapidapi.com/movie/order/byPopularity/";
     const options = {
       method: "GET",
       headers: {
@@ -150,12 +152,18 @@ function App() {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-      console.log(result);
-      setPopular(result);
+      //console.log(result.results);
+      setPopular(result.results.slice(0,10));
     } catch (error) {
       console.error(error);
     }
   }
+  useEffect(()=>{
+    //handleFirstSearch();
+  },[])
+  useEffect(()=>{
+
+  },[popular])
   return (
     <div className="w-full">
       <div className="h-[9vh] w-full flex items-center justify-between dark:bg-darkDBg bg-lightDBg font-bold">
@@ -207,7 +215,10 @@ function App() {
                        focus:border-lightDBg dark:focus:border-darkDBg"
                   placeholder="Search for movies..."
                 />
-                <div onClick={()=>handleSearch(query)} className="h-[5vh] w-[30px] flex justify-center items-center dark:text-darkText bg-darkLBg dark:bg-darkDBg">
+                <div
+                  onClick={() => handleSearch(query)}
+                  className="h-[5vh] w-[30px] flex justify-center items-center dark:text-darkText bg-darkLBg dark:bg-darkDBg"
+                >
                   <FaSearch />
                 </div>
                 {query && (
@@ -231,9 +242,12 @@ function App() {
                 )}
               </div>
               <div className="w-full flex justify-center items-center">
-                {popular.length>0 && popular.map((movie)=>{
-                  <MovieCard key={movie.id} data={movie}/>
-                })}
+                <div className="w-full flex flex-wrap justify-center items-center">
+                  {topMovies.length > 0 &&
+                    topMovies.map((movie,id) => (
+                      <PopularCard key={id} data={movie} />
+                    ))}
+                </div>
               </div>
             </div>
           }
