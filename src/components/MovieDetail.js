@@ -12,7 +12,7 @@ function MovieDetail() {
 
   const addToFavorites = () => {
     const userId=localStorage.getItem("UserID");
-    console.log(user,userId);
+    //console.log(user,userId);
     if (!user && !userId) {
       alert("You need to be logged in to add favorites.");
       return;
@@ -22,7 +22,7 @@ function MovieDetail() {
       let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
       if (!favorites.some((fav) => fav.imdb_id === movie.imdb_id)) {
         favorites.push(movie);
-        console.log(movie + "movie");
+        //console.log(movie + "movie");
         localStorage.setItem("favorites", JSON.stringify(favorites));
         alert("Added to favorites");
       } else {

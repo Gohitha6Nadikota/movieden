@@ -8,13 +8,20 @@ const jwt = require("jsonwebtoken");
 
 const app = express();
 const port = 3001;
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://movieden-1.onrender.com", 
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true, 
+  })
+);
+
 const url = process.env.REACT_APP_MONGO_URI;
 const dbName = "login";
 const client = new MongoClient(url);
 
 app.use(express.json());
-
+app.options('*', cors());
 let db;
 
 client
