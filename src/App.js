@@ -222,7 +222,7 @@ function App() {
                   <FaSearch />
                 </div>*/}
                 {query && (
-                  <ul className="absolute top-[5vh] w-[75%] max-h-[200px] mr-8 bg-lightLBg dark:bg-darkDBg border border-darkDBg dark:border-darkDBg overflow-y-auto shadow-lg z-10">
+                  <ul className="absolute top-[5vh] w-[75%] max-h-[200px]  bg-lightLBg dark:bg-darkDBg border border-darkDBg dark:border-darkDBg overflow-y-auto shadow-lg z-10">
                     {noResults ? (
                       <li className="p-2 text-center dark:text-white">
                         No results found
