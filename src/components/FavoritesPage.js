@@ -49,8 +49,8 @@ const FavoritesPage = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {movies && movies.map((movie) => (
             <Link
-              key={movie.id}
-              to={`/movie/${movie.id}`}
+              key={movie.imdb_id}
+              to={`/movie/${movie.imdb_id}`}
               className="favorite-item bg-lightDBg dark:bg-gray-700 shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
             >
               <img

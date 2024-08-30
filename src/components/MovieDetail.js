@@ -20,7 +20,7 @@ function MovieDetail() {
     
     try {
       let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-      if (!favorites.some((fav) => fav.id === movie.id)) {
+      if (!favorites.some((fav) => fav.imdb_id === movie.imdb_id)) {
         favorites.push(movie);
         console.log(movie + "movie");
         localStorage.setItem("favorites", JSON.stringify(favorites));
