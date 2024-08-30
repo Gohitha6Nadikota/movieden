@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const FavoritesPage = () => {
-  const [favorites, setFavorites] = useState([]);
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    setFavorites(storedFavorites);
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || []
     setMovies(storedFavorites);
   }, []);
 
@@ -55,10 +53,10 @@ const FavoritesPage = () => {
                 <img
                   src={movie.image_url}
                   alt={movie.title}
-                  className="w-full h-64 object-cover"
+                  className="w-full h-[240px] object-fit"
                 />
                 <div className="p-4">
-                  <h2 className="text-xl font-semibold text-darkText dark:text-white">
+                  <h2 className="text-start px-3 font-bold h-[50px] text-sm">
                     {movie.title} ({movie.year})
                   </h2>
                 </div>
