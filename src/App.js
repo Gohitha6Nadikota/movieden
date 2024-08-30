@@ -42,7 +42,6 @@ function App() {
     }
   }, []);
    const handleSearch = async (query) => {
-     //console.log(query+"data");
      const url = `https://moviesminidatabase.p.rapidapi.com/movie/imdb_id/byTitle/${query}/`;
      const options = {
        method: "GET",
@@ -75,7 +74,6 @@ function App() {
 
   const fetchMovies = async (searchQuery) => {
     const url = `https://moviesminidatabase.p.rapidapi.com/movie/imdb_id/byTitle/${searchQuery}/`;
-    //console.log(process.env.REACT_APP_API_KEY);
     const options = {
       method: "GET",
       headers: {
@@ -89,7 +87,6 @@ function App() {
       const result = await response.json();
       if (result.results && result.results.length > 0) {
         setData(result.results);
-        console.log(result.results);
         setNoResults(false);
       } else {
         setData([]);
@@ -102,7 +99,6 @@ function App() {
     }
   };
   useEffect(() => {
-    console.log(user);
   }, [user]);
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -152,7 +148,6 @@ function App() {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-      //console.log(result.results);
       setPopular(result.results.slice(0,10));
     } catch (error) {
       console.error(error);

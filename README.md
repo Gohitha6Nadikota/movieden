@@ -21,35 +21,17 @@ Optional features like user authentication and theme customization further enhan
 
 *Setup Instructions*
 
-
- Create the Repository on GitHub
- and log in.
-
-
- 1.Click the “+” icon in the upper-right corner and select “New repository.”
-
-
- 2.Name your repository and add a description.
-Choose to make it either public or private.
-
-
- 3.Initialize with a README if you want, but it’s not strictly necessary since you’ll be adding it later.
-
-
- 4.Click “Create repository.”
-
  In the command line enter the following
  
- 1.https://github.com/Gohitha6Nadikota/movieden.git
+ 1. git clone -b master https://github.com/Gohitha6Nadikota/movieden.git
 
- 2.cd movieden
+ 2. cd movieden
  
- 3.npm install
+ 3. npm install
  
- 4.follow the instructions to use tailwindcss https://tailwindcss.com/docs/installation
- 
- 5. npm start and node server.js
+ 4. npm start to start react 
 
+ 5. node server.js to start backend
 
 
 *API Usage Details*
@@ -189,4 +171,5 @@ Choose to make it either public or private.
   - Dark/Light Mode: Provides a customizable viewing experience based on user preference.
 
 
+I have commented some code due to rate limiting on the API. Please have a look at my commented code too. Thank you.  
  
