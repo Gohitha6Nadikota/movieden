@@ -10,7 +10,8 @@ function MovieDetail() {
   const [movie, setMovie] = useState(null);
   const [cast, setCast] = useState([]);
 
-  const addToFavorites = async () => {
+  const addToFavorites = () => {
+    console.log(user,userId);
     if (!user && !userId) {
       alert("You need to be logged in to add favorites.");
       return;
@@ -18,8 +19,9 @@ function MovieDetail() {
     
     try {
       let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-      if (!favorites.includes(movie)) {
+      if (!favorites.some((fav) => fav.id === movie.id)) {
         favorites.push(movie);
+        console.log(movie + "movie");
         localStorage.setItem("favorites", JSON.stringify(favorites));
         alert("Added to favorites");
       } else {

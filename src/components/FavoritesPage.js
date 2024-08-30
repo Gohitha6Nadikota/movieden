@@ -10,6 +10,7 @@ const FavoritesPage = () => {
     const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(storedFavorites);
     setMovies(storedFavorites);
+    console.log(storedFavorites);
   }, []);
 
  /* useEffect(() => {
@@ -46,7 +47,7 @@ const FavoritesPage = () => {
       </h1>
       {movies.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {movies.map((movie) => (
+          {movies && movies.map((movie) => (
             <Link
               key={movie.id}
               to={`/movie/${movie.id}`}
