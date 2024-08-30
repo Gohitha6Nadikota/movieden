@@ -165,7 +165,7 @@ function App() {
 
   },[popular])
   return (
-    <div className="w-full">
+    <div className="w-full bg-darkLBg dark:bg-darkDBg">
       <div className="h-[9vh] w-full flex items-center justify-between dark:bg-darkDBg bg-lightDBg font-bold">
         <div className="text-lightLBg dark:text-darkText flex items-center ml-3 md:ml-5">
           <span>
@@ -204,7 +204,7 @@ function App() {
         <Route
           path="/"
           element={
-            <div className="w-full">
+            <div className="w-full ">
               <div className="w-full flex justify-center items-center my-4 relative">
                 <input
                   onChange={handleChange}
@@ -215,12 +215,12 @@ function App() {
                        focus:border-lightDBg dark:focus:border-darkDBg"
                   placeholder="Search for movies..."
                 />
-                <div
+                {/*<div
                   onClick={() => handleSearch(query)}
                   className="h-[5vh] w-[30px] flex justify-center items-center dark:text-darkText bg-darkLBg dark:bg-darkDBg"
                 >
                   <FaSearch />
-                </div>
+                </div>*/}
                 {query && (
                   <ul className="absolute top-[5vh] w-[75%] max-h-[200px] mr-8 bg-lightLBg dark:bg-darkDBg border border-darkDBg dark:border-darkDBg overflow-y-auto shadow-lg z-10">
                     {noResults ? (
@@ -244,7 +244,7 @@ function App() {
               <div className="w-full flex justify-center items-center">
                 <div className="w-full flex flex-wrap justify-center items-center">
                   {topMovies.length > 0 &&
-                    topMovies.map((movie,id) => (
+                    topMovies.map((movie, id) => (
                       <PopularCard key={id} data={movie} />
                     ))}
                 </div>

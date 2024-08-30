@@ -18,8 +18,8 @@ function MovieDetail() {
     
     try {
       let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-      if (!favorites.includes(id)) {
-        favorites.push(id);
+      if (!favorites.includes(movie)) {
+        favorites.push(movie);
         localStorage.setItem("favorites", JSON.stringify(favorites));
         alert("Added to favorites");
       } else {

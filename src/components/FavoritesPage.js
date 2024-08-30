@@ -9,9 +9,10 @@ const FavoritesPage = () => {
   useEffect(() => {
     const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(storedFavorites);
+    setMovies(storedFavorites);
   }, []);
 
-  useEffect(() => {
+ /* useEffect(() => {
     const fetchFavoriteMovies = async () => {
       const moviePromises = favorites.map((id) =>
         axios.get(`https://moviesminidatabase.p.rapidapi.com/movie/id/${id}/`, {
@@ -34,9 +35,9 @@ const FavoritesPage = () => {
     };
 
     if (favorites.length > 0) {
-      fetchFavoriteMovies();
+      //fetchFavoriteMovies();
     }
-  }, [favorites]);
+  }, [favorites]);*/
 
   return (
     <div className="favorites-page bg-lightLBg dark:bg-gray-800 min-h-[100vh] p-6">
