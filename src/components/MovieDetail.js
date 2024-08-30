@@ -6,11 +6,12 @@ import { useUser } from "../context/userContext";
 
 function MovieDetail() {
   const { id } = useParams();
-  const { userId,user } = useUser(); 
+  const { user } = useUser(); 
   const [movie, setMovie] = useState(null);
   const [cast, setCast] = useState([]);
 
   const addToFavorites = () => {
+    const userId=localStorage.getItem("UserID");
     console.log(user,userId);
     if (!user && !userId) {
       alert("You need to be logged in to add favorites.");
