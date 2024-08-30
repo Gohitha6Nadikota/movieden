@@ -46,25 +46,26 @@ const FavoritesPage = () => {
         My Favorites
       </h1>
       {movies.length > 0 ? (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {movies && movies.map((movie) => (
-            <Link
-              key={movie.imdb_id}
-              to={`/movie/${movie.imdb_id}`}
-              className="favorite-item bg-lightDBg dark:bg-gray-700 shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
-            >
-              <img
-                src={movie.image_url}
-                alt={movie.title}
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-4">
-                <h2 className="text-xl font-semibold text-lightText dark:text-white">
-                  {movie.title} ({movie.year})
-                </h2>
-              </div>
-            </Link>
-          ))}
+        <div className="w-full flex flex-wrap justify-center items-center">
+          {movies &&
+            movies.map((movie) => (
+              <Link
+                key={movie.imdb_id}
+                to={`/movie/${movie.imdb_id}`}
+                className="w-[200px] h-[290px] m-2 border-2 border-darkLBg dark:border-darkDBg bg-lightLBg dark:bg-darkDBg dark:text-darkText text-lightText"
+              >
+                <img
+                  src={movie.image_url}
+                  alt={movie.title}
+                  className="w-full h-64 object-cover"
+                />
+                <div className="p-4">
+                  <h2 className="text-xl font-semibold text-darkText dark:text-white">
+                    {movie.title} ({movie.year})
+                  </h2>
+                </div>
+              </Link>
+            ))}
         </div>
       ) : (
         <p className="text-lightText dark:text-gray-400">
