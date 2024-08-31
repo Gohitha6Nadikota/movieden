@@ -170,6 +170,9 @@ Optional features like user authentication and theme customization further enhan
 
   - Dark/Light Mode: Provides a customizable viewing experience based on user preference.
 
+Deployment link: https://movieden-1.onrender.com/
+
 
 I have commented some code due to rate limiting on the API. Please have a look at my commented code too. Thank you.  
  
+
