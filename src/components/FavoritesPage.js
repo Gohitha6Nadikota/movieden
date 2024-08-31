@@ -48,7 +48,7 @@ const FavoritesPage = () => {
               <Link
                 key={movie.imdb_id}
                 to={`/movie/${movie.imdb_id}`}
-                className="w-[200px] h-[300px] m-2 border-2 border-darkLBg dark:border-darkDBg bg-lightLBg dark:bg-darkDBg dark:text-darkText text-lightText"
+                className="w-[200px] h-[320px] m-2 border-2 border-darkLBg dark:border-darkDBg bg-lightLBg dark:bg-darkDBg dark:text-darkText text-lightText"
               >
                 <img
                   src={movie.image_url}
